@@ -1,15 +1,42 @@
+/* body {
+  background-color: rgb(252, 251, 251);
+  color: #0000;
+} */
+
 .container {
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
 }
-.weapon-card {
+.weapon-cards {
   display: flex;
   gap: 20px;
 }
 
 .weapon-item {
-  width: 200px;
-  height: 200px;
+  font-size: 96px;
+  color: #ffff;
+  background-color: black;
+  padding: 20px;
+  border-radius: 10px;
+
+}
+
+.weapon-cards .card {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.scissors {
+  background-color: rgb(111, 201, 240);
+}
+.rock {
+  background-color: rgb(150, 214, 98);
+}
+
+.paper {
+  background-color: rgb(205, 89, 234);
 }
