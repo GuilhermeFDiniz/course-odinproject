@@ -8,38 +8,36 @@ function getComputerChoice() {
   //  create a function name that take playerSelection and computerSelection as parameter
 function playRound(computerSelection, playerSelection) {
   // declare playerscore and computerscore to store the gamestate
-  let playerScore = 0
-  let computerScore = 0
+  let result
   //  compare if playerselection beats computer selection and update the score
   switch (computerSelection) {
     case 'rock':
       if (playerSelection === 'scissors') {
-        computerScore ++;
+        return -1;
       }
       if (playerSelection === 'paper') {
-        playerScore ++;
+        return 1;
       }
       break;
     case 'scissors':
       if (playerSelection === 'rock') {
-        playerScore ++;
+        return 1;
       }
       if (playerSelection === 'paper') {
-        computerScore ++;
+        return -1;
       }
       break;
     case 'paper':
       if (playerSelection === 'scissors') {
-        playerScore ++;
+        return 1;
       }
       if (playerSelection === 'rock') {
-        computerScore ++;
+        return -1;
       }
       break
     }
   //  return the winner
-  console.log(playerScore)
-  return [playerScore, computerScore]
+  return 0;
   }
 
 function startMatch() {
@@ -54,9 +52,7 @@ function darkMode(){
   document.body.style.backgroundColor = 'black';
   document.body.style.color = 'white';
   let screen = document.querySelectorAll(".screen-mode")
-  console.log(screen)
   screen.forEach(element => {
-    console.log(element)
    element.classList.toggle("show-off-content")
 });
 }
@@ -65,9 +61,7 @@ function lightMode() {
   document.body.style.backgroundColor = 'white';
   document.body.style.color = 'black';
   let screen = document.querySelectorAll(".screen-mode")
-  console.log(screen)
   screen.forEach(element => {
-    console.log(element)
    element.classList.toggle("show-off-content")
 });
 }
@@ -76,25 +70,28 @@ let startGame = document.querySelector(".start-game");
 startGame.addEventListener('click', function(){
   startMatch()});
 
-let rock = document.querySelector(".card-rock")
-rock.addEventListener('click', function (){
-  playRound(getComputerChoice(), 'rock')})
-console.log(rock)
-let scissors = document.querySelector(".card-scissors")
-scissors.addEventListener('click', function(){
-  playRound(getComputerChoice(), 'scissors')})
-console.log(scissors)
-let paper = document.querySelector(".card-paper")
-paper.addEventListener('click', function(){
-  playRound(getComputerChoice(), 'paper')})
-console.log(paper)
+let weapon = document.querySelectorAll(".weapon-card")
+weapon.forEach(element => {
+  element.addEventListener('click', function (event){
+    let weapon = event.currentTarget.querySelector('h3').textContent.toLowerCase()
+    let player = document.querySelector("#player-score")
+    let ia = document.querySelector("#ia-score")
+    const result = playRound(getComputerChoice(), weapon)
+    if (result === 1) {
+      player.textContent = parseInt(player.textContent) + 1;
+    } else if(result === -1) {
+      ia.textContent = parseInt(ia.textContent) + 1;
+    } else {
+
+    }
+  })
+})
+
 
 let dark = document.querySelector(".fa-moon")
 dark.addEventListener('click', function (){
   darkMode()})
-console.log(dark)
 
 let light = document.querySelector(".fa-sun")
 light.addEventListener('click', function (){
   lightMode()})
-console.log(dark)

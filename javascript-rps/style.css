@@ -15,7 +15,7 @@ align-self: flex-end;
 .fa-sun,
 .fa-moon {
   font-size: 36px;
-  background-color: rgb(126, 126, 126);
+  background-color: rgba(55, 104, 217, 0.684);
   padding: 10px;
   border-radius: 50%;
   color: rgb(196, 180, 33);
@@ -142,4 +142,14 @@ align-self: flex-end;
   border-radius: 25%;
   border: 2px solid #000;
   padding: 20px;
+}
+
+.rounds {
+  text-align: center;
+}
+
+.score {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
