@@ -74,15 +74,22 @@ let weapon = document.querySelectorAll(".weapon-card")
 weapon.forEach(element => {
   element.addEventListener('click', function (event){
     let weapon = event.currentTarget.querySelector('h3').textContent.toLowerCase()
-    let player = document.querySelector("#player-score")
-    let ia = document.querySelector("#ia-score")
+    let player = document.querySelector("#ia-score")
+    let ia = document.querySelector("#player-score")
     const result = playRound(getComputerChoice(), weapon)
     if (result === 1) {
       player.textContent = parseInt(player.textContent) + 1;
     } else if(result === -1) {
       ia.textContent = parseInt(ia.textContent) + 1;
     } else {
-
+    }
+    let playerScore = parseInt(document.querySelector("#player-score").textContent)
+    let iaScore = parseInt(document.querySelector("#ia-score").textContent)
+    if (playerScore === 5) {
+      alert("You Won")
+    }
+    if (iaScore === 5) {
+      alert("You Lose")
     }
   })
 })
