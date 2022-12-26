@@ -87,9 +87,13 @@ weapon.forEach(element => {
     let iaScore = parseInt(document.querySelector("#ia-score").textContent)
     if (playerScore === 5) {
       alert("You Won")
+      player.textContent = 0
+      ia.textContent = 0
     }
     if (iaScore === 5) {
       alert("You Lose")
+      player.textContent = 0
+      ia.textContent = 0
     }
   })
 })
