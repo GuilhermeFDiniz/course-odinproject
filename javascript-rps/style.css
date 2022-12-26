@@ -60,9 +60,21 @@ align-self: flex-end;
   margin: 0 0 20px 0;
 }
 
+.card-rock:hover,
+.card-scissors:hover,
+.card-paper:hover {
+  -webkit-transform: scale(2);
+  -ms-transform: scale(2);
+  transform: scale(2);
+  transition: all 0.7s ease;
+  cursor: pointer;
+
+}
+
 .scissors {
   background-color: rgb(111, 201, 240);
 }
+
 .rock {
   background-color: rgb(150, 214, 98);
 }
@@ -72,12 +84,34 @@ align-self: flex-end;
 }
 
 .start-game {
-  padding: 10px 20px 10px 20px;
-  background-color: rgb(241, 92, 164);
+  background-color: rgb(81, 81, 81);
   color: #ffff;
-  margin-top: 25px;
+  margin: 20px 0px;
   border-radius: 10px;
-  border: 2px solid #000;
+  padding: 10px 20px;
+  border: 2px solid rgb(208, 174, 63);
+}
+
+.start-game::before {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  background: #ffee10;
+  transition: .5s;
+  transform: scale(.9);
+  z-index: -1;
+}
+
+.start-game:hover::before {
+  transform: scale(1.1);
+  box-shadow: 0 0 15px #ffee10;
+}
+
+.start-game:hover {
+  color: #ffee10;
+  background-color: rgb(68, 62, 62);
+  box-shadow: 0 0 10px #ffee10;
+  text-shadow: 0 0 10px #ffee10;
 }
 
 .header {
