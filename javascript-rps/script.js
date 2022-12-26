@@ -43,7 +43,33 @@ function playRound(computerSelection, playerSelection) {
   }
 
 function startMatch() {
-  console.log("oi")
+  let game = document.querySelector(".container-game")
+  let home = document.querySelector(".container-home")
+  let rounds = document.querySelector("rounds")
+  home.classList.toggle("show-off-content")
+  game.classList.toggle("show-off-content")
+}
+
+function darkMode(){
+  document.body.style.backgroundColor = 'black';
+  document.body.style.color = 'white';
+  let screen = document.querySelectorAll(".screen-mode")
+  console.log(screen)
+  screen.forEach(element => {
+    console.log(element)
+   element.classList.toggle("show-off-content")
+});
+}
+
+function lightMode() {
+  document.body.style.backgroundColor = 'white';
+  document.body.style.color = 'black';
+  let screen = document.querySelectorAll(".screen-mode")
+  console.log(screen)
+  screen.forEach(element => {
+    console.log(element)
+   element.classList.toggle("show-off-content")
+});
 }
 
 let startGame = document.querySelector(".start-game");
@@ -62,3 +88,13 @@ let paper = document.querySelector(".card-paper")
 paper.addEventListener('click', function(){
   playRound(getComputerChoice(), 'paper')})
 console.log(paper)
+
+let dark = document.querySelector(".fa-moon")
+dark.addEventListener('click', function (){
+  darkMode()})
+console.log(dark)
+
+let light = document.querySelector(".fa-sun")
+light.addEventListener('click', function (){
+  lightMode()})
+console.log(dark)
