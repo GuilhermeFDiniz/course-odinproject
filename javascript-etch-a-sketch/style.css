@@ -5,7 +5,43 @@ body {
   align-items: center;
 }
 .menu {
+  padding: 20px;
   display: flex;
   flex-direction: column;
+  align-self: center;
+  gap: 25px;
   width: 20%;
+}
+
+.grid {
+  padding: 25px;
+  border-radius: 25px;
+  width: 550px;
+  height: 550px;
+  border: 2px solid #000;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.container {
+  display: flex;
+}
+
+.content {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.colorpicker {
+  display: flex;
+  flex-direction: column;
+  gap: 10px 0;
+}
+
+
+
+.style-grid-block {
+  outline: 1px solid #000;
 }
