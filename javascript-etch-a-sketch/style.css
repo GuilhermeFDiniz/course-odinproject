@@ -16,8 +16,8 @@ body {
 .grid {
   padding: 25px;
   border-radius: 25px;
-  width: 550px;
-  height: 550px;
+  width: 450px;
+  height: 450px;
   border: 2px solid #000;
   display: flex;
   flex-wrap: wrap;
@@ -34,13 +34,11 @@ body {
   align-items: center;
 }
 
-.colorpicker {
+.menu-items {
   display: flex;
   flex-direction: column;
   gap: 10px 0;
 }
-
-
 
 .style-grid-block {
   outline: 1px solid #000;
