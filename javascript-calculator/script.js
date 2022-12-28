@@ -27,4 +27,10 @@ function lightMode() {
 }
 
 // Calculator Features
+const calcButtons = document.querySelectorAll(".calc-item")
 
+for (let i = 0; i < calcButtons.length; i++) {
+  calcButtons.addEventListener('click', () => {
+    
+  })
+}
