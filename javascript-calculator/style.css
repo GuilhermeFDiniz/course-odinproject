@@ -3,6 +3,16 @@ body {
   flex-direction: column;
   align-items: center;
   justify-content: space-between;
+  height: 100vh;
+  margin: 0;
+  background-color: rgb(255, 219, 174);
+}
+
+.main{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 
 .container {
@@ -12,7 +22,7 @@ body {
   border: 2px solid #000;
   padding: 10px;
   border-radius: 15px;
-  box-shadow: 2px 2px 2px 2px rgb(255, 255, 255);
+  box-shadow: 2px 2px 2px 2px rgb(124, 124, 124);
   background-color: rgb(0, 0, 0);
 }
 
@@ -25,6 +35,21 @@ body {
  border-radius: 5px;
  color: rgb(0, 0, 0);
  font-weight: bold;
+ display: flex;
+ flex-direction: column;
+ justify-content: space-between;
+ align-items: end;
+}
+
+.result {
+  font-size: 24px;
+  font-weight: bold;
+}
+
+.operation {
+  font-size: 16px;
+  color: rgb(59, 59, 59);
+  font-weight: bold;
 }
 
 .row1 {
@@ -61,4 +86,21 @@ body {
   text-align: center;
   color: #fff;
   font-weight: bold;
+}
+
+.calc-item:hover {
+  background-color: rgb(180, 180, 180);
+  cursor: pointer;
+  transform: scale(1.1);
+}
+
+
+/* Footer and Header */
+
+footer,
+header {
+  background-color: rgb(0, 0, 0, 0.5);
+  width: 100%;
+  color: #fff;
+  text-align: center;
 }
