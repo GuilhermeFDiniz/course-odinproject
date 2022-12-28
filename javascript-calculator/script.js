@@ -1,3 +1,5 @@
+// Screen Mode
+
 let dark = document.querySelector(".fa-moon")
 dark.addEventListener('click', function (){
   darkMode()})
@@ -23,3 +25,6 @@ function lightMode() {
    element.classList.toggle("show-off-content")
 });
 }
+
+// Calculator Features
+
