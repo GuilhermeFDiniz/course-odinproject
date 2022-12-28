@@ -104,3 +104,32 @@ header {
   color: #fff;
   text-align: center;
 }
+
+.fa-sun,
+.fa-moon {
+  font-size: 36px;
+  background-color: rgba(55, 104, 217, 0.684);
+  padding: 10px;
+  border-radius: 50%;
+  color: rgb(196, 180, 33);
+  margin: 10px;
+}
+
+.fa-moon:hover,
+.fa-sun:hover {
+  transform: scale(1.2);
+  cursor: pointer;
+  transition: all 1s ease;
+}
+
+.fa-sun:hover {
+  background-color: #fff;
+}
+
+.fa-moon:hover {
+  background-color: #000;
+}
+
+.show-off-content {
+  display:none;
+}
