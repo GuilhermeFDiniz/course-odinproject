@@ -1,7 +1,6 @@
 let size = parseInt(document.querySelector("#sizeSlider").value)
-console.log(size)
 let grid = document.querySelector(".grid")
-console.log(grid)
+let penColor = "rgb(0,0,0)";
 
 function createDiv() {
   let gridBlock = document.createElement('div')
@@ -9,8 +8,11 @@ function createDiv() {
   gridBlock.style.width = `${100.0/size}%`
   gridBlock.style.height = `${100.0/size}%`
   gridBlock.addEventListener('mouseover', () => {
-    let bgColor = randomBgColor()
-    gridBlock.style.backgroundColor = (bgColor)
+    if (rainbow.value === "true") {
+      gridBlock.style.backgroundColor = (randomBgColor())
+    } else {
+      gridBlock.style.backgroundColor = penColor
+    }
   })
   return gridBlock
 }
@@ -22,6 +24,19 @@ function randomBgColor() {
     let bgColor = "rgb(" + x + "," + y + "," + z + ")";
     return bgColor
 }
+
+let rainbow = document.querySelector('.rainbow')
+rainbow.addEventListener('click', () => {
+rainbow.value = true
+})
+
+let picker = document.querySelector("#colorpicker")
+picker.oninput = (e) => {
+  rainbow.value = false
+  penColor = e.target.value
+  console.log(penColor)
+}
+
 
 let clear = document.querySelector(".clear")
 clear.addEventListener("click", () => {
