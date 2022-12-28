@@ -37,8 +37,6 @@ function createGrid() {
   }
 }
 
-
-
   function createDiv() {
     let gridBlock = document.createElement('div')
     gridBlock.classList.add('style-grid-block')
@@ -61,3 +59,5 @@ function createGrid() {
       let bgColor = "rgb(" + x + "," + y + "," + z + ")";
       return bgColor
   }
+
+  createGrid()
