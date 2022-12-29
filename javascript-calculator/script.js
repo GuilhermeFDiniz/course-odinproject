@@ -49,38 +49,32 @@ numbers.forEach(element => {
 
 
 equal.addEventListener('click', () => {
-  let operation = calculation.textContent.match(/([\*||\/||\+||\-||])/)[0]
-  console.log(operation)
-  let numbers = calculation.textContent.split(operation)
-  let firstNumber = parseFloat(numbers[0])
-  let secondNumber = parseFloat(numbers[1])
-  switch (operation) {
-    case '+':
-      result.innerText = firstNumber + secondNumber
-      break;
-    case '-':
-      result.innerText = firstNumber - secondNumber
-      break;
-    case '*':
-      result.innerText = firstNumber * secondNumber
-      break;
-    case '/':
-      result.innerText = firstNumber / secondNumber
-      break;
-  }
-  calculation.innerText = result.innerText
+  const total = executeCalculation(calculation.innerText)
+  calculation.innerText = total
+  result.innerText = total
 })
 
 operators.forEach(element => {
   element.addEventListener("click", (e) => {
+    let lastChar = calculation.innerText[calculation.innerText.length-1]
+    if (checkOperator(calculation.innerText) === -1) {
     let operation = e.target.innerText
     calculation.innerText += operation
+  } else if (lastChar.search(/([\*||\/||\+||\-||])/) === 0 ) {
+    const total = executeCalculation(`${calculation.innerText}${result.innerText}`)
+    calculation.innerText = total + e.target.innerText
+    result.innerText = total
+  } else {
+    const total = executeCalculation(calculation.innerText)
+    calculation.innerText = total + e.target.innerText
+    result.innerText = total
+  }
   })
 })
 
 clear.addEventListener('click', () => {
-  result.textContent = ""
-  calculation.textContent = ""
+  result.innerText = ""
+  calculation.innerText = ""
 })
 
 backspace.addEventListener('click', () => {
@@ -88,18 +82,46 @@ backspace.addEventListener('click', () => {
 })
 
 decimal.addEventListener("click", () => {
-  if (checkDecimal(calculation.textContent) === 1){
-    calculation.textContent += "."
+  if (checkDecimal(calculation.innerText) === -1){
+    calculation.innerText += "."
   }
 })
+
 
 function checkDecimal(string) {
   if ( string.search(/([\*||\/||\+||\-||])/) >= 0){
   let lastNumber = string.split(string.match(/([\*||\/||\+||\-||])/)[0])[1]
-    return lastNumber.search(/(\.)/) >= 0 ? -1 : 1
+    return lastNumber.search(/(\.)/) >= 0 ? 1 : -1
   } else if (string.search(/(\.)/) >= 0){
-    return -1
-  } else {
     return 1
+  } else {
+    return -1
   }
+}
+
+function checkOperator(string) {
+  return string.search(/([\*||\/||\+||\-||])/) >= 0 ? 1 : -1
+}
+
+function executeCalculation(string) {
+  let operation = string.match(/([\*||\/||\+||\-||])/)[0]
+  let numbers = string.split(operation)
+  let firstNumber = parseFloat(numbers[0])
+  let secondNumber = parseFloat(numbers[1])
+  let result = 0
+  switch (operation) {
+    case '+':
+      result = firstNumber + secondNumber
+      break;
+    case '-':
+      result = firstNumber - secondNumber
+      break;
+    case '*':
+      result = firstNumber * secondNumber
+      break;
+    case '/':
+      result = firstNumber / secondNumber
+      break;
+  }
+  return result
 }
