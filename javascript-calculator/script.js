@@ -78,8 +78,6 @@ operators.forEach(element => {
   })
 })
 
-
-
 clear.addEventListener('click', () => {
   result.textContent = ""
   calculation.textContent = ""
@@ -88,3 +86,20 @@ clear.addEventListener('click', () => {
 backspace.addEventListener('click', () => {
   calculation.innerText = calculation.innerText.slice(0 , -1)
 })
+
+decimal.addEventListener("click", () => {
+  if (checkDecimal(calculation.textContent) === 1){
+    calculation.textContent += "."
+  }
+})
+
+function checkDecimal(string) {
+  if ( string.search(/([\*||\/||\+||\-||])/) >= 0){
+  let lastNumber = string.split(string.match(/([\*||\/||\+||\-||])/)[0])[1]
+    return lastNumber.search(/(\.)/) >= 0 ? -1 : 1
+  } else if (string.search(/(\.)/) >= 0){
+    return -1
+  } else {
+    return 1
+  }
+}
