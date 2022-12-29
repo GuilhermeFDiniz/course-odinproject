@@ -27,10 +27,34 @@ function lightMode() {
 }
 
 // Calculator Features
-const calcButtons = document.querySelectorAll(".calc-item")
+const numbers = document.querySelectorAll(".number")
+const calculation = document.querySelector(".calculation")
+const result = document.querySelector(".result")
+const backspace = document.querySelector(".backspace")
+const clear = document.querySelector(".clear")
+const equal = document.querySelector(".equal")
+const decimal = document.querySelector(".decimal")
+const operators = document.querySelectorAll(".operator")
 
-for (let i = 0; i < calcButtons.length; i++) {
-  calcButtons.addEventListener('click', () => {
-    
+numbers.forEach(element => {
+  element.addEventListener('click', () => {
+    calculation.innerText += element.innerText
   })
-}
+});
+
+operators.forEach(element => {
+  element.addEventListener('click', () => {
+    if (calculation.textContent.includes("*" || "-" || "+" || "/")) {
+
+    }
+  })
+});
+
+clear.addEventListener('click', () => {
+  result.textContent = ""
+  calculation.textContent = ""
+})
+
+backspace.addEventListener('click', () => {
+  calculation.innerText = calculation.innerText.slice(0 , -1)
+})
