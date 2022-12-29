@@ -38,17 +38,47 @@ const operators = document.querySelectorAll(".operator")
 
 numbers.forEach(element => {
   element.addEventListener('click', () => {
-    calculation.innerText += element.innerText
+    if (calculation.innerText.length > 20) {
+      alert("Character Limit Achieved")
+    } else {
+      calculation.innerText += element.innerText
+    }
+
   })
 });
+
+
+equal.addEventListener('click', () => {
+  let operation = calculation.textContent.match(/([\*||\/||\+||\-||])/)[0]
+  console.log(operation)
+  let numbers = calculation.textContent.split(operation)
+  let firstNumber = parseFloat(numbers[0])
+  let secondNumber = parseFloat(numbers[1])
+  switch (operation) {
+    case '+':
+      result.innerText = firstNumber + secondNumber
+      break;
+    case '-':
+      result.innerText = firstNumber - secondNumber
+      break;
+    case '*':
+      result.innerText = firstNumber * secondNumber
+      break;
+    case '/':
+      result.innerText = firstNumber / secondNumber
+      break;
+  }
+  calculation.innerText = result.innerText
+})
 
 operators.forEach(element => {
-  element.addEventListener('click', () => {
-    if (calculation.textContent.includes("*" || "-" || "+" || "/")) {
-
-    }
+  element.addEventListener("click", (e) => {
+    let operation = e.target.innerText
+    calculation.innerText += operation
   })
-});
+})
+
+
 
 clear.addEventListener('click', () => {
   result.textContent = ""
