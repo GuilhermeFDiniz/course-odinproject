@@ -43,7 +43,6 @@ numbers.forEach(element => {
     } else {
       calculation.innerText += element.innerText
     }
-
   })
 });
 
