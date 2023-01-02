@@ -111,17 +111,33 @@ function executeCalculation(string) {
   let result = 0
   switch (operation) {
     case '+':
-      result = firstNumber + secondNumber
+      result = add(firstNumber, secondNumber)
       break;
     case '-':
-      result = firstNumber - secondNumber
+      result = subtract(firstNumber, secondNumber)
       break;
     case '*':
-      result = firstNumber * secondNumber
+      result = multiply(firstNumber, secondNumber)
       break;
     case '/':
-      result = firstNumber / secondNumber
+      result = divide(firstNumber, secondNumber)
       break;
   }
   return result
+}
+
+function add(a, b) {
+  return a + b
+}
+
+function substract(a, b) {
+  return a - b
+}
+
+function multiply(a, b) {
+  return a * b
+}
+
+function divide(a, b) {
+  return a / b
 }
