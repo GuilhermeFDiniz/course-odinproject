@@ -163,3 +163,20 @@ button {
 form {
   width: 100%;
 }
+
+input {
+  border-radius: 5px;
+}
+
+input:valid {
+  background-color: rgb(192, 245, 192);
+}
+
+input:invalid {
+  background-color: rgb(210, 141, 141);
+}
+
+input:focus {
+  transform:scale(1.05, 1.15);
+
+}
