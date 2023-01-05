@@ -7,11 +7,19 @@ body{
 .icon {
   width: 1em;
   height: 1em;
+  color: #fff;
+  background-color: #fff;
+  border-radius: 50%;
+  padding: 3px;
 }
 
 ul li {
+  display: flex;
   list-style: none;
   font-weight: bold;
+  gap: 5px;
+  margin: 5px;
+  align-items: center;
 }
 
 .projects {
