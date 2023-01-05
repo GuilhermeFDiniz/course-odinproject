@@ -25,7 +25,7 @@ ul li {
 ul li:hover {
   background-color: rgb(204, 204, 204);
   color: #000;
-  padding: 10px;
+  transform: scale(1.2);
   border-radius: 10px;
   cursor: pointer;
 }
@@ -69,6 +69,14 @@ ul li:hover {
   overflow: auto;
   border-left: 5px solid rgb(241, 136, 16);
   justify-content: space-between;
+}
+
+.project-card:hover{
+  transform: scale(1.05);
+  background-color: rgb(241, 136, 16);
+  border-left: 5px solid #000;
+  cursor: pointer;
+
 }
 
 .header {
