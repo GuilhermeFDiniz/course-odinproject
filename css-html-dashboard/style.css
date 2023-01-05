@@ -1,3 +1,5 @@
+
+
 body{
   background-color: rgb(226, 226, 226);
   margin: 0;
@@ -9,6 +11,7 @@ body{
 
 ul li {
   list-style: none;
+  font-weight: bold;
 }
 
 .projects {
@@ -16,20 +19,23 @@ ul li {
   grid-column: 2/5;
   grid-template-columns: 1fr 1fr;
   grid-gap: 15px;
-  padding: 15px;
 }
 
 .menu {
   grid-column: 1/2;
-  grid-row: 1/3;
-  background-color: rgb(64, 123, 211);
+  grid-row: 1/6;
+  background-color: rgb(40, 150, 225);
   color: rgb(255, 255, 255);
   padding: 20px;
+  max-width: 220px;
+  min-width: 220px;
 }
 .additional {
   grid-column: 5/6;
+  grid-row: 2/6;
   grid-template-columns: 200px;
   padding: 15px;
+  max-width: 300px;
 }
 
 .page {
@@ -40,8 +46,8 @@ ul li {
   display: flex;
   flex-direction: column;
   padding: 15px;
-  width: 250px;
-  height: 280px;
+  width: 300px;
+  height: 240px;
   background-color: rgb(255, 255, 255);
   border-radius: 10px;
   overflow: auto;
@@ -50,7 +56,13 @@ ul li {
 }
 
 .header {
+  display: flex;
+  justify-content: space-between;
   background-color: #fff;
+  padding: 10px;
+  grid-column: 2/6;
+  align-items: center;
+  gap: 10px;
 }
 
 .announcements {
@@ -98,4 +110,52 @@ ul li {
   justify-content: end;
   align-items: flex-end;
   gap: 20px;
+}
+
+.main-avatar-card {
+  display: flex;
+  gap: 15px;
+  padding: 15px;
+}
+
+.main-avatar-image{
+  height: 4em;
+  width: 4em;
+  border-radius: 50%;
+}
+
+button{
+ background-color: rgb(40, 150, 225);
+ color: #fff;
+ padding: 10px 20px;
+ border: 0;
+ border-radius: 50px;
+}
+
+.avatar-nav {
+  width: 3em;
+  height: 3em;
+  border-radius: 50%;
+}
+
+.first-section,
+.second-section {
+  display: flex;
+  flex-direction: column;
+}
+
+.buttons {
+  gap: 30px;
+}
+
+input {
+  width: 500px;
+  height: 1.8em;
+  border-radius: 10px;
+  border: 0;
+  background-color: rgb(225, 225, 225);
+}
+
+.container-projects {
+  padding: 15px;
 }
