@@ -16,6 +16,7 @@ ul li {
   grid-column: 2/5;
   grid-template-columns: 1fr 1fr;
   grid-gap: 15px;
+  padding: 15px;
 }
 
 .menu {
@@ -28,6 +29,7 @@ ul li {
 .additional {
   grid-column: 5/6;
   grid-template-columns: 200px;
+  padding: 15px;
 }
 
 .page {
@@ -35,10 +37,65 @@ ul li {
 }
 
 .project-card {
+  display: flex;
+  flex-direction: column;
   padding: 15px;
   width: 250px;
   height: 280px;
   background-color: rgb(255, 255, 255);
   border-radius: 10px;
   overflow: auto;
+  border-left: 5px solid rgb(241, 136, 16);
+  justify-content: space-between;
+}
+
+.header {
+  background-color: #fff;
+}
+
+.announcements {
+  background-color: #fff;
+  border-radius: 10px;
+  padding: 15px;
+}
+
+.trending {
+  display: flex;
+  flex-direction: column;
+  background-color: #fff;
+  border-radius: 10px;
+  padding: 15px;
+  gap: 15px
+}
+
+.avatar-image {
+  height: 2em;
+  width: 2em;
+  border-radius: 50%;
+  align-self: center;
+}
+
+.trending > div {
+  display: flex;
+  gap: 20px;
+}
+
+.name-description {
+  display: flex;
+  flex-direction: column;
+  line-height: 0;
+  font-size: 14px;
+  color: rgb(138, 138, 138);
+}
+
+.name {
+  color: rgb(100, 100, 100);
+  font-weight: bold;
+}
+
+.project-card ul {
+  display: flex;
+  justify-content: end;
+  align-items: flex-end;
+  gap: 20px;
 }
