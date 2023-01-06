@@ -25,29 +25,32 @@
 </header>
 <main>
   <h1>Your Books</h1>
-  <button>New Book</button>
-  <div>
+  <button class="addNewBook" id="addBookBtn">New Book</button>
+  <div class="container-books">
 
   </div>
 </main>
 <footer>
   <p>Developed by Guilherme Diniz 💖</p>
 </footer>
-<div class="modal">
-  <label for="">Book Author
+<div class="modal" id="addBookModal">
+  <h2>Add new book</h2>
+  <form class="add-book-form" id="addBookForm">
+  <label for="">Book Author</label>
     <input type="text" name="" id="">
-  </label>
-  <label for="">Book Title
+  <label for="">Book Title</label>
     <input type="text">
-  </label>
-  <label for="">Total Pages
+  <label for="">Total Pages</label>
     <input type="number">
-  </label>
   <label class="toggle">
     <span class="toggle-label">Read</span>
     <input class="toggle-checkbox" type="checkbox">
     <div class="toggle-switch"></div>
   </label>
+  <button class="button-blue" type="submit">Submit</button>
+</form>
 </div>
+<div class="modal" id="accountModal"></div>
+<div class="overlay" id="overlay"></div>
 </body>
 </html>

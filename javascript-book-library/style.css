@@ -1,7 +1,22 @@
-/* http://meyerweb.com/eric/tools/css/reset/
-   v2.0 | 20110126
-   License: none (public domain)
-*/
+:root {
+  --white: #ffffff;
+  --grey: #606060;
+  --black: #000000;
+  --red: #ff7070;
+  --sun: rgb(196, 180, 33);
+  --sky: rgba(55, 104, 217, 0.684);
+  --light-green: #9fff9c;
+  --light-red: #ff9c9c;
+  --border-radius: 10px;
+  --shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+  --form-background: rgb(255, 225, 175);
+  --form-border: #000;
+  --form-font-color: rgb(0, 0, 0);
+  --form-button-background-color: rgba(0, 0, 0, 0.74);
+  --form-input-background-color: #757575;
+}
+
+/* Reset for browser*/
 
 html, body, div, span, applet, object, iframe,
 h1, h2, h3, h4, h5, h6, p, blockquote, pre,
@@ -48,7 +63,6 @@ table {
 
 
 
-
 /* Screen Mode */
 
 body {
@@ -64,10 +78,10 @@ body {
 .fa-sun,
 .fa-moon {
   font-size: 36px;
-  background-color: rgba(55, 104, 217, 0.684);
+  background-color: var(--sky);
   padding: 10px;
   border-radius: 50%;
-  color: rgb(196, 180, 33);
+  color: var(--sun);
   margin: 10px;
 }
 
@@ -79,11 +93,11 @@ body {
 }
 
 .fa-sun:hover {
-  background-color: #fff;
+  background-color: var(--white);
 }
 
 .fa-moon:hover {
-  background-color: #000;
+  background-color: var(--black);
 }
 
 .show-off-content {
@@ -99,20 +113,27 @@ footer,
 header {
   background-color: rgb(0, 0, 0, 0.5);
   width: 100%;
-  color: #fff;
+  color: var(--white);
   text-align: center;
   height: 100%px;
 }
 
-/*  */
-.modal {
-  display: flex;
-  flex-direction: column;
-  gap: 2px;
+
+/* Overlay */
+.overlay {
   position: fixed;
   top: 0;
   left: 0;
+  display: none;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.8);
 }
+
+.overlay.active {
+  display: block;
+}
+
 
 /* switch toogle */
 
@@ -122,8 +143,9 @@ header {
 }
 
 .toggle-switch {
+  border: 1px solid var(--black);
   display: inline-block;
-  background: rgb(232, 87, 87);
+  background: var(--light-red);
   border-radius: 16px;
   width: 58px;
   height: 32px;
@@ -151,7 +173,7 @@ header {
   box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.5);
 }
 .toggle-checkbox:checked + .toggle-switch {
-  background: #56c080;
+  background: var(--light-green);
 }
 .toggle-checkbox:checked + .toggle-switch:before {
   left: 30px;
@@ -166,4 +188,117 @@ header {
   margin-left: 5px;
   position: relative;
   top: 2px;
+}
+
+/* Form */
+form{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+}
+
+form input {
+  width: 75%;
+}
+
+.modal {
+  border: 5px solid var(--form-border);
+  display: flex;
+  flex-direction: column;
+  position: fixed;
+  z-index: 1;
+  top: 50%;
+  left: 50%;
+  width: 300px;
+  padding: 30px;
+  border-radius: var(--border-radius);
+  background-color: var(--form-background);
+  text-align: center;
+  transform: translate(-50%, -50%) scale(0);
+  transition: 0.3s ease-in-out;
+  gap: 20px;
+}
+
+.modal.active {
+  transform: translate(-50%, -50%) scale(1);
+}
+
+.modal h2 {
+  font-weight: bold;
+  font-size: x-large;
+  color: var(--black);
+}
+.modal label{
+  font-weight: bold;
+  color: var(--black);
+}
+
+.modal input {
+  border-radius: 5px;
+  color: white;
+  font-weight: bold;
+  padding: 5px;
+  border: 2px solid var(--form-font-color);
+  background-color: var(--form-input-background-color);
+}
+
+.modal button {
+  padding: 10px 20px;
+  font-size: 18px;
+  font-weight: bold;
+  background-color: var(--form-button-background-color);
+  color: #ffff;
+  border-radius: var(--border-radius);
+}
+
+.modal button:hover {
+  cursor: pointer;
+  transform: scale(1.2);
+  transition: 0.2s;
+}
+
+/* Container Books */
+main {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  justify-content: center;
+  align-items: center;
+  height: 80vh;
+  width: 90%;
+}
+
+.container-books {
+  border-radius: var(--border-radius);
+  box-shadow: var(--shadow);
+  display: grid;
+  grid-template-columns: minmax(20%, 30%);
+  width: 100%;
+  height: 90%;
+  background-color: #000000c9;
+  overflow: auto;
+}
+
+.addNewBook{
+  font-weight: bold;
+  padding: 10px 20px;
+  color: #fff;
+  background-color: #000000;
+  border-radius: var(--border-radius);
+}
+
+.addNewBook:hover {
+  transform: scale(1.2);
+  cursor: pointer;
+  background-color: #fff;
+  color: black;
+  transition: 1s;
+
+}
+
+main h1 {
+  font-size: 24px;
+  font-weight: bold;
 }
