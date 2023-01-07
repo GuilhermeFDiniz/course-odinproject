@@ -36,12 +36,35 @@ const overlay = document.getElementById('overlay')
 const addBookBtn = document.getElementById('addBookBtn')
 const submitBook = document.getElementById('submit-book')
 
+function addBookLibrary(title,author,pages,read) {
+  const bookCard = document.querySelector(".container-books")
+  const bookHtml= `<div class="book">
+  <div class="book-content">
+  <p>Title: ${title}</p>
+  <p>Author: ${author}</p>
+  <p>Pages: ${pages}</p>
+  <p>Read: ${read}</p>
+  </div>
+  <div>
+  <button class="btn-book">Remove</button>
+  <button class="btn-book">Edit</button>
+  </div>`
+  bookCard.insertAdjacentHTML('beforeend', bookHtml)
+}
+
+
+
 submitBook.addEventListener('click', (event) => {
   event.preventDefault()
   addBookToLibrary(author.value, title.value, pages.value, read.value)
+  addBookLibrary(author.value, title.value, pages.value, read.value)
   addBookModal.classList.remove('active')
   overlay.classList.remove('active')
 })
+
+
+
+
 
 
 const openAddBookModal = () => {
