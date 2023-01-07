@@ -246,7 +246,7 @@ form input {
 }
 
 .modal button {
-  padding: 10px 20px;
+  padding: 7px 12px;
   font-size: 18px;
   font-weight: bold;
   background-color: var(--form-button-background-color);

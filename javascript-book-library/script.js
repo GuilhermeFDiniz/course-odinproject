@@ -26,11 +26,23 @@ function lightMode() {
 }
 
 //
-
+const author = document.getElementById("author")
+const title = document.getElementById("title")
+const pages = document.getElementById("pages")
+const read = document.getElementById("read")
 const addBookModal = document.getElementById('addBookModal')
 const addBookForm = document.getElementById('addBookForm')
 const overlay = document.getElementById('overlay')
 const addBookBtn = document.getElementById('addBookBtn')
+const submitBook = document.getElementById('submit-book')
+
+submitBook.addEventListener('click', (event) => {
+  event.preventDefault()
+  addBookToLibrary(author.value, title.value, pages.value, read.value)
+  addBookModal.classList.remove('active')
+  overlay.classList.remove('active')
+})
+
 
 const openAddBookModal = () => {
   addBookForm.reset()
