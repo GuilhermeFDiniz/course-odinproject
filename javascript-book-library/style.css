@@ -3,17 +3,17 @@
   --grey: #606060;
   --black: #000000;
   --red: #ff7070;
-  --sun: rgb(196, 180, 33);
-  --sky: rgba(55, 104, 217, 0.684);
-  --light-green: #9fff9c;
-  --light-red: #ff9c9c;
+  --sun: rgb(255, 221, 0);
+  --sky: #8DC1F0;
+  --light-green: #6FBD8C;
+  --light-red: #bd6f6f;
   --border-radius: 10px;
   --shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
   --form-background: rgb(255, 225, 175);
   --form-border: #000;
   --form-font-color: rgb(0, 0, 0);
   --form-button-background-color: rgb(0, 0, 0);
-  --form-input-background-color: #757575;
+  --form-input-background-color: #BDA682;
 }
 
 /* Reset for browser*/
@@ -309,13 +309,12 @@ main h1 {
 }
 
 input:focus{
-  background-color: rgb(163, 196, 244);
+  background-color: #70634D;
 }
 
 .book{
   display: flex;
-  background-color: rgb(97, 164, 205);
-  color: rgb(255, 255, 255);
+  background-color: var(--sky);
   flex-direction: column;
   justify-content: space-between;
   padding: 20px;
@@ -324,6 +323,7 @@ input:focus{
   border-radius: var(--border-radius);
   overflow: auto;
   line-break: anywhere;
+  color: #000;
 }
 
 .book-content {
