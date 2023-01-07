@@ -64,13 +64,11 @@ submitBook.addEventListener('click', (event) => {
 
 
 
-
-
-
 const openAddBookModal = () => {
   addBookForm.reset()
   addBookModal.classList.add('active')
   overlay.classList.add('active')
+  author.focus()
 }
 
 const closeAddBookModal = () => {
@@ -87,7 +85,7 @@ overlay.onclick = closeAllModals
 
 const myLibrary = []
 
-function Book(author, title, pages, read){
+function Book(author, title, pages, read = 'false'){
   this.title = title
   this.author = author
   this.pages = pages
