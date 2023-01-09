@@ -54,6 +54,7 @@ function createBookCard(book) {
   bookContent.classList.add('book-content')
   buttonEdit.classList.add('edit')
   buttonRemove.classList.add('remove')
+  buttonGroup.classList.add('button-group')
   bookContent.appendChild(bookTitle)
   bookContent.appendChild(bookAuthor)
   bookContent.appendChild(bookPages)
@@ -81,8 +82,6 @@ function createBookCard(book) {
   })
   bookContainer.appendChild(bookCard)
 }
-
-
 
 
 

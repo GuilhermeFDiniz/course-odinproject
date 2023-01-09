@@ -285,7 +285,8 @@ main {
   background-color: #000000c9;
   grid-template-columns: repeat( auto-fit, minmax(175px, 1fr) );
   overflow: auto;
-  justify-content: center;
+  justify-items: center;
+
 }
 
 .addNewBook{
@@ -349,4 +350,9 @@ input:focus{
   background-color: rgb(255, 255, 255);
   color: #000;
   transition: 1s ease;
+}
+
+.button-group{
+  display: flex;
+  gap: 20px;
 }
