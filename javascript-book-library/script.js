@@ -12,7 +12,7 @@ function darkMode(){
   document.body.style.color = 'white';
   const screen = document.querySelectorAll(".screen-mode")
   screen.forEach(element => {
-   element.classList.toggle("show-off-content")
+    element.classList.toggle("show-off-content")
 });
 }
 
@@ -30,11 +30,37 @@ const addBookModal = document.getElementById('addBookModal')
 const addBookForm = document.getElementById('addBookForm')
 const overlay = document.getElementById('overlay')
 const addBookBtn = document.getElementById('addBookBtn')
-const submitBook = document.getElementById('submit-book')
 const bookContainer = document.querySelector(".container-books")
+const form = document.querySelector('form')
 const myLibrary = []
 let bookId = 0
 
+
+form.addEventListener('submit', (event) => {
+  event.preventDefault();
+  addBook()
+})
+
+function getFromForm(){
+  const author = document.getElementById("author").value
+  const title = document.getElementById("title").value
+  const pages = document.getElementById("pages").value
+  const read = document.getElementById("read").value
+  document.getElementById('author').blur()
+  return new Book(author, title, pages, read, bookId)
+}
+
+function addBook(){
+  const book = getFromForm()
+  addBookToLibrary(book)
+  createBookCard(book)
+  bookId++
+  closeAddBookModal()
+}
+
+function addBookToLibrary(book){
+  myLibrary.push(book)
+}
 
 function createBookCard(book) {
   const bookCard = document.createElement('div')
@@ -71,9 +97,7 @@ function createBookCard(book) {
   bookPages.textContent = `Pages: ${book.pages}`
   bookIsRead.textContent = `Read: ${book.read}`
   buttonRemove.addEventListener('click', (event) => {
-    console.log(event.currentTarget.getAttribute('book-id'))
     myLibrary.forEach((e, index) => {
-      console.log(parseInt(e.id))
       if(e.id === parseInt(event.currentTarget.getAttribute('book-id'))){
         myLibrary.splice(index, 1)
         event.path[2].remove()
@@ -81,28 +105,6 @@ function createBookCard(book) {
     })
   })
   bookContainer.appendChild(bookCard)
-}
-
-
-
-
-submitBook.addEventListener('click', (event) => {
-  event.preventDefault()
-  const book = getFromForm()
-  addBookToLibrary(book)
-  createBookCard(book)
-  bookId++
-  addBookModal.classList.remove('active')
-  overlay.classList.remove('active')
-})
-
-function getFromForm() {
-  const author = document.getElementById("author").value
-  const title = document.getElementById("title").value
-  const pages = document.getElementById("pages").value
-  const read = document.getElementById("read").value
-  document.getElementById('author').blur()
-  return new Book(author, title, pages, read, bookId)
 }
 
 function Book(author, title, pages, read = 'false', id){
@@ -113,25 +115,17 @@ function Book(author, title, pages, read = 'false', id){
   this.id = id
 }
 
-function addBookToLibrary(book) {
-  myLibrary.push(book)
-}
-
-const openAddBookModal = () => {
+function openAddBookModal(){
   addBookForm.reset()
   addBookModal.classList.add('active')
   overlay.classList.add('active')
   document.getElementById('author').focus()
 }
 
-const closeAddBookModal = () => {
+function closeAddBookModal(){
   addBookModal.classList.remove('active')
   overlay.classList.remove('active')
 }
 
-const closeAllModals = () => {
-  closeAddBookModal()
-}
-
-addBookBtn.onclick = openAddBookModal
-overlay.onclick = closeAllModals
+addBookBtn.addEventListener('click', () => openAddBookModal())
+overlay.addEventListener('click', ()=> closeAddBookModal())
