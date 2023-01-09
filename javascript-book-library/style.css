@@ -285,6 +285,7 @@ main {
   background-color: #000000c9;
   grid-template-columns: repeat( auto-fit, minmax(175px, 1fr) );
   overflow: auto;
+  justify-content: center;
 }
 
 .addNewBook{
