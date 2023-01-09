@@ -35,53 +35,8 @@ const author = document.getElementById("author")
 const title = document.getElementById("title")
 const pages = document.getElementById("pages")
 const read = document.getElementById("read")
-
-
-
-
-
-function addBookLibrary(title,author,pages,read) {
-  const bookCard = document.querySelector(".container-books")
-  const bookDiv = document.createElement('div')
-  const bookContent = document.createElement('div')
-  const bookTitle = document.createElement('p')
-  const bookAuthor = document.createElement('p')
-  const bookPages = document.createElement('p')
-  const bookIsRead = document.createElement('p')
-  const buttonGroup = document.createElement('div')
-  const buttonRemove = document.createElement('button')
-  const buttonEdit = document.createElement('button')
-  bookDiv.classList.add('book')
-  bookContent.classList.add('book-content')
-  buttonEdit.textContent = "Edit"
-  buttonRemove.textContent = "Remove"
-  bookTitle.textContent = `Title: ${title}`
-  bookAuthor.textContent = `Author: ${author}`
-  bookPages.textContent = `Pages: ${pages}`
-  bookIsRead.textContent = `Read: ${read}`
-  bookContent.appendChild(bookTitle)
-  bookContent.appendChild(bookAuthor)
-  bookContent.appendChild(bookPages)
-  bookContent.appendChild(bookIsRead)
-  buttonGroup.appendChild(buttonRemove)
-  buttonGroup.appendChild(buttonEdit)
-  bookDiv.appendChild(bookContent)
-  bookDiv.appendChild(buttonGroup)
-  bookCard.appendChild(bookDiv)
-  buttonRemove.classList.add('btn-book')
-  buttonEdit.classList.add('btn-book')
-}
-
-
-
-submitBook.addEventListener('click', (event) => {
-  event.preventDefault()
-  addBookToLibrary(author.value, title.value, pages.value, read.value)
-  addBookLibrary(author.value, title.value, pages.value, read.value)
-  addBookModal.classList.remove('active')
-  overlay.classList.remove('active')
-})
-
+const myLibrary = []
+let bookId = 0
 
 
 const openAddBookModal = () => {
@@ -103,16 +58,69 @@ const closeAllModals = () => {
 addBookBtn.onclick = openAddBookModal
 overlay.onclick = closeAllModals
 
-const myLibrary = []
+function addBookContainer(title,author,pages,read, id) {
+  const bookCard = document.querySelector(".container-books")
+  const bookDiv = document.createElement('div')
+  const bookContent = document.createElement('div')
+  const bookTitle = document.createElement('p')
+  const bookAuthor = document.createElement('p')
+  const bookPages = document.createElement('p')
+  const bookIsRead = document.createElement('p')
+  const buttonGroup = document.createElement('div')
+  const buttonRemove = document.createElement('button')
+  const buttonEdit = document.createElement('button')
+  bookDiv.classList.add('book')
+  bookContent.classList.add('book-content')
+  buttonEdit.classList.add('edit')
+  buttonRemove.classList.add('remove')
+  buttonEdit.textContent = "Edit"
+  buttonRemove.textContent = "Remove"
+  buttonRemove.setAttribute('bookId', id)
+  bookDiv.setAttribute('bookId', id)
+  bookTitle.textContent = `Title: ${title}`
+  bookAuthor.textContent = `Author: ${author}`
+  bookPages.textContent = `Pages: ${pages}`
+  bookIsRead.textContent = `Read: ${read}`
+  bookContent.appendChild(bookTitle)
+  bookContent.appendChild(bookAuthor)
+  bookContent.appendChild(bookPages)
+  bookContent.appendChild(bookIsRead)
+  buttonGroup.appendChild(buttonRemove)
+  buttonGroup.appendChild(buttonEdit)
+  bookDiv.appendChild(bookContent)
+  bookDiv.appendChild(buttonGroup)
+  bookCard.appendChild(bookDiv)
+  buttonRemove.classList.add('btn-book')
+  buttonEdit.classList.add('btn-book')
+  buttonRemove.addEventListener('click', (event) => {
+    myLibrary.forEach((element, index) => {
+      if(toString(element.id) === toString(bookDiv.id)){
+        myLibrary.splice(index, 1)
+      }
+    })
+  })
+}
 
-function Book(author, title, pages, read = 'false'){
+
+submitBook.addEventListener('click', (event) => {
+  event.preventDefault()
+  addBookToLibrary(author.value, title.value, pages.value, read.value, bookId)
+  addBookContainer(author.value, title.value, pages.value, read.value, bookId)
+  bookId++
+  addBookModal.classList.remove('active')
+  overlay.classList.remove('active')
+})
+
+
+function Book(author, title, pages, read = 'false', id){
   this.title = title
   this.author = author
   this.pages = pages
   this.read = read
+  this.id = id
 }
 
-function addBookToLibrary(author, title, pages, read) {
-  const book = new Book(author, title, pages, read)
+function addBookToLibrary(author, title, pages, read, id) {
+  const book = new Book(author, title, pages, read, id)
   myLibrary.push(book)
 }
