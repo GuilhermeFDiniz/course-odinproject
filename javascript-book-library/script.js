@@ -45,7 +45,7 @@ function getFromForm(){
   const author = document.getElementById("author").value
   const title = document.getElementById("title").value
   const pages = document.getElementById("pages").value
-  const read = document.getElementById("read").value
+  const read = document.getElementById("read").checked
   document.getElementById('author').blur()
   return new Book(author, title, pages, read, bookId)
 }
