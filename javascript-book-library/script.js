@@ -26,30 +26,50 @@ function lightMode() {
 }
 
 //
-const author = document.getElementById("author")
-const title = document.getElementById("title")
-const pages = document.getElementById("pages")
-const read = document.getElementById("read")
 const addBookModal = document.getElementById('addBookModal')
 const addBookForm = document.getElementById('addBookForm')
 const overlay = document.getElementById('overlay')
 const addBookBtn = document.getElementById('addBookBtn')
 const submitBook = document.getElementById('submit-book')
+const author = document.getElementById("author")
+const title = document.getElementById("title")
+const pages = document.getElementById("pages")
+const read = document.getElementById("read")
+
+
+
+
 
 function addBookLibrary(title,author,pages,read) {
   const bookCard = document.querySelector(".container-books")
-  const bookHtml= `<div class="book">
-  <div class="book-content">
-  <p>Title: ${title}</p>
-  <p>Author: ${author}</p>
-  <p>Pages: ${pages}</p>
-  <p>Read: ${read}</p>
-  </div>
-  <div>
-  <button class="btn-book">Remove</button>
-  <button class="btn-book">Edit</button>
-  </div>`
-  bookCard.insertAdjacentHTML('beforeend', bookHtml)
+  const bookDiv = document.createElement('div')
+  const bookContent = document.createElement('div')
+  const bookTitle = document.createElement('p')
+  const bookAuthor = document.createElement('p')
+  const bookPages = document.createElement('p')
+  const bookIsRead = document.createElement('p')
+  const buttonGroup = document.createElement('div')
+  const buttonRemove = document.createElement('button')
+  const buttonEdit = document.createElement('button')
+  bookDiv.classList.add('book')
+  bookContent.classList.add('book-content')
+  buttonEdit.textContent = "Edit"
+  buttonRemove.textContent = "Remove"
+  bookTitle.textContent = `Title: ${title}`
+  bookAuthor.textContent = `Author: ${author}`
+  bookPages.textContent = `Pages: ${pages}`
+  bookIsRead.textContent = `Read: ${read}`
+  bookContent.appendChild(bookTitle)
+  bookContent.appendChild(bookAuthor)
+  bookContent.appendChild(bookPages)
+  bookContent.appendChild(bookIsRead)
+  buttonGroup.appendChild(buttonRemove)
+  buttonGroup.appendChild(buttonEdit)
+  bookDiv.appendChild(bookContent)
+  bookDiv.appendChild(buttonGroup)
+  bookCard.appendChild(bookDiv)
+  buttonRemove.classList.add('btn-book')
+  buttonEdit.classList.add('btn-book')
 }
 
 
