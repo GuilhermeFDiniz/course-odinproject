@@ -26,3 +26,47 @@ function lightMode() {
 }
 
 //
+
+"use strict";
+
+const player = (mark) => {
+  this.mark = mark
+
+  const getMark = () => {
+    return mark
+  }
+  return {getMark}
+}
+
+const gameBoard = (() => {
+  const board = ['','','','','','','','',''];
+
+  const reset = () =>
+  board.forEach(element => {
+    element = '';
+  })
+
+  const setField = (index, mark) => {
+    if(board[index] === ''){
+    board[index] = mark
+    }
+  }
+
+  const getField = (index) => {
+    return board[index]
+  }
+
+  return {setField, getField, reset}
+})();
+
+const gameFlow = () => {
+
+}
+
+const board = gameBoard
+const pageBoard = document.querySelector('.game-board')
+for (let i = 0; i < 9; i++) {
+  const field = document.createElement('div')
+  field.classList.add('game-field')
+  pageBoard.appendChild(field)
+}
