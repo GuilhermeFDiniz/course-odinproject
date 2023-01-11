@@ -5,7 +5,7 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>⭕❌ Tik tak toe</title>
+  <title>⭕❌ Tic tac toe</title>
   <script src="script.js" defer></script>
   <link rel="stylesheet" href="style.css">
   <link rel="stylesheet" href="//use.fontawesome.com/releases/v6.2.0/css/all.css">
@@ -25,9 +25,21 @@
   </div>
 </header>
 <main>
-  <div><h1>Welcome to Tik-Tak-Toe Game</h1></div>
-  <div class="game-board"></div>
-  <div><button class="restart-game">Restart</button></div>
+  <h1  id="welcome-message">Welcome to Tic-Tac-Toe Game</h1>
+  <h1 id="message"></h1>
+  <div class="game-board">
+    <div class="field" data-index="0"></div>
+    <div class="field" data-index="1"></div>
+    <div class="field" data-index="2"></div>
+    <div class="field" data-index="3"></div>
+    <div class="field" data-index="4"></div>
+    <div class="field" data-index="5"></div>
+    <div class="field" data-index="6"></div>
+    <div class="field" data-index="7"></div>
+    <div class="field" data-index="8"></div>
+  </div>
+  <div><button class="start-game button">Start Game</button></div>
+  <div><button class="restart-game button show-off-content">Restart</button></div>
 </main>
 <footer>
   <p>Developed by Guilherme Diniz 💖</p>
