@@ -81,6 +81,10 @@ const displayController = (() => {
     restartButton.classList.remove('show-off-content')
     startButton.classList.add('show-off-content')
     setMessageElement("Player X's turn");
+    gameBoard.reset()
+    updateGame()
+    gameController.reset()
+    setMessageElement("Player X's turn");
   })
 
   restartButton.addEventListener('click', () => {
