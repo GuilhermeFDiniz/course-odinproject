@@ -22,10 +22,17 @@ function power(base, exponential){
   if(exponential === 0){
     return 1
   }
-  return base *  power(base, exponential-1)
+  return base * power(base, exponential-1)
 }
 
+function factorial(number){
+  if(number===1){
+    return 1
+  }
+  return number * factorial(number-1)
+}
 
+console.log(factorial(5))
 console.log(power(2,8))
 console.log(sumRange(3))
 console.log(collatz(50))
