@@ -39,9 +39,21 @@ function productOfArray(arr){
   return arr.pop() * productOfArray(arr)
 }
 
+var allAreLessThanSeven = all([1,0,6], function(num){
+	return num < 7;
+});
 
-console.log(productOfArray([1,2,3,10]))
-console.log(factorial(5))
-console.log(power(2,8))
-console.log(sumRange(3))
-console.log(collatz(50))
+function all(arr, callback){
+  if(arr.length === 0){
+    return true
+  }
+  number = arr.pop()
+  if(callback(number)===false){
+    return false
+  }
+  return all(arr, callback)
+}
+
+
+
+console.log(allAreLessThanSeven)
