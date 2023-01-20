@@ -10,4 +10,13 @@ function collatz(number, counter = 0){
   }
 }
 
+function sumRange(number){
+  if(number === 1){
+    return 1
+  } else {
+    return number+sumRange(number-1)
+  }
+}
+
+console.log(sumRange(3))
 console.log(collatz(50))
