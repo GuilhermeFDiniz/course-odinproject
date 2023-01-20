@@ -32,6 +32,15 @@ function factorial(number){
   return number * factorial(number-1)
 }
 
+function productOfArray(arr){
+  if(arr.length === 1){
+    return arr[0]
+  }
+  return arr.pop() * productOfArray(arr)
+}
+
+
+console.log(productOfArray([1,2,3,10]))
 console.log(factorial(5))
 console.log(power(2,8))
 console.log(sumRange(3))
