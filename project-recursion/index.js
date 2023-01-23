@@ -5,4 +5,16 @@ function fibonacci(number){
   return [...fibonacci(number-1), fibonacci(number-1)[number-2] + fibonacci(number-1)[number-3]]
 }
 
-console.log(fibonacci(5))
+function mergeSort(list) {
+  if(list.length === 1){
+    return list
+  }
+  let midPoint = list.length/2
+  let left = mergeSort(list.slice(0, midPoint))
+  let right = mergeSort(list.slice(midPoint))
+  return merge(left, right)
+}
+
+function merge(leftSide, rightSide){
+
+}
