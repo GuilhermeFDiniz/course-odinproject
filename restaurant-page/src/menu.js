@@ -28,8 +28,7 @@ function createItem(title, description){
 }
 
 function loadMenu(){
-  const main = document.querySelector('main')
-  main.textContent = ""
+  const main = document.querySelector('.content')
   main.appendChild(createMenu())
 }
 
