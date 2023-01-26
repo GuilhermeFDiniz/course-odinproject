@@ -1,5 +1,3 @@
-import { create } from "lodash"
-
 function createContact(name, position, phone, email) {
   const card = document.createElement("div")
   const cardName = document.createElement("h2")
