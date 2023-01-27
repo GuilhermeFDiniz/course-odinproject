@@ -17,7 +17,7 @@ export default class Task{
     this.date = date
   }
 
-  getDate(date){
+  getDate(){
     return this.date
   }
 

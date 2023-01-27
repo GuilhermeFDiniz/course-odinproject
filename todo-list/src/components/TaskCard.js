@@ -1,4 +1,4 @@
-import Task from './Task.js'
+import Task from './TaskModel.js'
 
 export default function CreateTask(name, date, status, priority){
   const task = new Task(name, date, status, priority)

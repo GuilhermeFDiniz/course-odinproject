@@ -1,6 +1,6 @@
 import "./styles/style.css"
-import Task from './components/Task.js'
-import CreateTask from './components/CreateTask.js'
+import Task from './components/TaskModel.js'
+import CreateTask from './components/TaskCard.js'
 import TaskForm from './components/TaskForm.js'
 import TaskList from './components/TaskList'
 

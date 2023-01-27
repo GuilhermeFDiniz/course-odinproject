@@ -1,4 +1,4 @@
-import Task from "./Task"
+import Task from "./TaskModel"
 import {addTask} from './StorageTasks'
 
 export default function TaskForm() {

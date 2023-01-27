@@ -1,5 +1,5 @@
 import {getTasks} from './StorageTasks.js'
-import CreateTask from './CreateTask.js'
+import CreateTask from './TaskCard.js'
 
 export default function TaskList(){
   const tasks = getTasks()
