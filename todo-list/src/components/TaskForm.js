@@ -1,3 +1,5 @@
+import Task from "./Task"
+
 export default function TaskForm() {
   const form = document.createElement('form')
   const button = document.createElement('button')
@@ -35,10 +37,9 @@ export default function TaskForm() {
     const formText = document.querySelector('.input-text').value
     const formCheckbox = document.querySelector('.input-status').checked
     const formPriority= document.querySelector('.input-priority').value
-    console.log(formName)
-    console.log(formText)
-    console.log(formCheckbox)
-    console.log(formPriority)
+    const newTask = new Task(formName, formText, formCheckbox, formPriority)
+    localStorage.setItem('Tasks', JSON.stringify(newTask))
+    console.log(localStorage.getItem('Tasks'))
   })
   return form;
 }
