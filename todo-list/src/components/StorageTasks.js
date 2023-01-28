@@ -8,9 +8,21 @@ function addTask(object){
   }
 }
 
-function getTasks(){
+function getTaskList(){
   return JSON.parse(localStorage.getItem('Tasks'))
 }
 
+function removeTask(name){
 
-export {getTasks, addTask}
+}
+
+function editTask(name, body){
+
+}
+
+function getTask(name) {
+
+}
+
+
+export {getTaskList, addTask}

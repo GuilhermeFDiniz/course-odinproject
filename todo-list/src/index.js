@@ -6,15 +6,17 @@ import TaskList from './components/TaskList'
 
 import _ from 'lodash';
 
-console.log("Estou funcionando aeee")
-
 function component(){
-  const element = document.createElement("div")
-  element.innerHTML = 'Hello';
-  element.appendChild(TaskForm())
-  element.appendChild(TaskList())
-
-  return element
+  const content = document.createElement('div')
+  const listElement = document.createElement("div")
+  const formElement = document.createElement("div")
+  listElement.classList.add("content-task-list")
+  listElement.classList.add('content-list')
+  content.appendChild(formElement)
+  content.appendChild(listElement)
+  formElement.appendChild(TaskForm())
+  // listElement.appendChild(TaskList())
+  return content
 }
 
 document.body.appendChild(component())

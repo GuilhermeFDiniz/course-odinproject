@@ -1,5 +1,6 @@
 import Task from "./TaskModel"
 import {addTask} from './StorageTasks'
+import TaskList from './TaskList'
 
 export default function TaskForm() {
   const form = document.createElement('form')
@@ -41,6 +42,9 @@ export default function TaskForm() {
     const formPriority= document.querySelector('.input-priority').value
     const newTask = new Task(formName, formDate, formCheckbox, formPriority)
     addTask(newTask)
+    const tasklist = document.querySelector('.content-task-list')
+    tasklist.innerHTML = ""
+    tasklist.appendChild(TaskList())
   })
   return form;
 }

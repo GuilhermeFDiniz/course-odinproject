@@ -1,8 +1,8 @@
-import {getTasks} from './StorageTasks.js'
+import {getTaskList} from './StorageTasks.js'
 import CreateTask from './TaskCard.js'
 
 export default function TaskList(){
-  const tasks = getTasks()
+  const tasks = getTaskList()
   const div = document.createElement('div')
   div.classList.add('task-list')
   tasks.map(task => {
