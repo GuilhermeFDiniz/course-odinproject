@@ -13,14 +13,22 @@ function getTaskList(){
 }
 
 function removeTask(name){
-
+  const taskList = JSON.parse(localStorage.getItem('Tasks'))
+  taskList.filter(element => {
+    element.name === name
+  })
 }
 
 function editTask(name, body){
+  const taskList = JSON.parse(localStorage.getItem('Tasks'))
 
 }
 
 function getTask(name) {
+  const taskList = JSON.parse(localStorage.getItem('Tasks'))
+  return taskList.filter(element => {
+    element.name === name
+  })
 
 }
 
