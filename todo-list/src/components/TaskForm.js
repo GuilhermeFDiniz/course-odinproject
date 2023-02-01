@@ -42,7 +42,7 @@ export default function TaskForm() {
     const formPriority= document.querySelector('.input-priority').value
     const newTask = new Task(formName, formDate, formCheckbox, formPriority)
     addTask(newTask)
-    const tasklist = document.querySelector('.content-task-list')
+    const tasklist = document.querySelector('.content-list')
     tasklist.innerHTML = ""
     tasklist.appendChild(TaskList())
   })
