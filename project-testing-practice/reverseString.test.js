@@ -1,7 +1,6 @@
 import {describe, expect, test} from '@jest/globals';
 import reverseString from './reverseString.js'
 
-
 describe('Reverse String', ()=> {
   test('Reverse String  to be ', ()=>{
     expect(reverseString('')).toBe('')
@@ -22,7 +21,7 @@ describe('Reverse String', ()=> {
 
 describe('Reverse String', ()=> {
   test('Reverse String "hellO" to be "Olleh"', ()=>{
-    expect(reverseString('hello')).toBe('olleh')
+    expect(reverseString('hellO')).toBe('Olleh')
   })
 })
 
