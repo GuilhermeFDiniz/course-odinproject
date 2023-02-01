@@ -1,0 +1,11 @@
+{
+  "name": "project-testing-practice",
+  "version": "1.0.0",
+  "description": "",
+  "main": "capitalize.js",
+  "scripts": {
+    "test": "jest"
+  },
+  "author": "",
+  "license": "ISC"
+}
